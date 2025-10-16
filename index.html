@@ -1,35 +1,232 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <title>Beranda - Publikasi Informasi Publik</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Publikasi Informasi Publik - Bagian Perencanaan & Keuangan</title>
+  <meta name="description" content="Portal publikasi dokumen perencanaan dan laporan keuangan - Bagian Perencanaan & Keuangan, Kota Parepare">
+  <link rel="icon" href="logo-pemkot-parepare.png">
+  <style>
+    :root {
+      --blue-900: #003b63;
+      --blue-700: #005bac;
+      --muted: #6b7280;
+      --card: #ffffff;
+    }
+    *{box-sizing:border-box}
+    body{font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; margin:0; background:#f3f4f6; color:#0f172a}
+    header{background:linear-gradient(90deg,var(--blue-900),var(--blue-700)); color:white; padding:18px 24px; box-shadow:0 2px 6px rgba(2,6,23,0.08)}
+    .container{max-width:1100px;margin:0 auto;padding:24px}
+    .brand{display:flex;align-items:center;gap:14px}
+    .brand img{height:56px}
+    nav a{color:rgba(255,255,255,0.9); margin-left:14px; text-decoration:none; font-weight:600}
+    .hero{margin-top:18px; border-radius:8px; overflow:hidden; box-shadow:0 6px 18px rgba(2,6,23,0.08)}
+    .slider{position:relative; width:100%; height:360px; background:#111}
+    .slide{position:absolute; inset:0; opacity:0; transition:opacity 0.9s ease; background-size:cover; background-position:center}
+    .slide.active{opacity:1}
+    .slide-overlay{position:absolute; inset:0; background:linear-gradient(180deg, rgba(2,6,23,0.2), rgba(2,6,23,0.45)); display:flex; align-items:flex-end; padding:28px}
+    .hero h1{color:white; margin:0; font-size:28px}
+    .grid-3{display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin-top:18px}
+    .card{background:var(--card); padding:16px; border-radius:8px; box-shadow:0 2px 8px rgba(2,6,23,0.04)}
+    h2{margin:0 0 8px 0; font-size:18px}
+    table{width:100%; border-collapse:collapse}
+    th, td{padding:10px; text-align:left; border-bottom:1px solid #e6eef6; font-size:14px}
+    .btn{display:inline-block; background:var(--blue-700); color:white; padding:8px 12px; border-radius:6px; text-decoration:none; font-weight:600}
+    footer{background:white; border-top:1px solid #e6eef6; padding:18px 0; margin-top:24px}
+    @media(max-width:900px){
+      .grid-3{grid-template-columns:1fr}
+      .slider{height:220px}
+      nav a{display:none}
+    }
+    /* small dots */
+    .dots{position:absolute; left:50%; transform:translateX(-50%); bottom:12px; display:flex; gap:8px}
+    .dot{width:10px;height:10px;border-radius:10px;background:rgba(255,255,255,0.5);cursor:pointer}
+    .dot.active{background:white}
+  </style>
 </head>
 <body>
   <header>
-    <div class="logo">
-      <img src="logo-pemkot-parepare.png" alt="Logo">
-      <div class="title">
-        <h1>Publikasi Informasi Publik</h1>
-        <p>Bagian Perencanaan & Keuangan — Setda Kota Parepare</p>
+    <div class="container" style="display:flex;align-items:center;justify-content:space-between;">
+      <div class="brand">
+        <img src="logo-pemkot-parepare.png" alt="Logo Pemkot Parepare">
+        <div>
+          <div style="font-weight:700">Publikasi Informasi Publik</div>
+          <div style="font-size:13px; color:rgba(255,255,255,0.85)">Bagian Perencanaan & Keuangan — Sekretariat Daerah Kota Parepare</div>
+        </div>
       </div>
+      <nav>
+        <a href="#home">Beranda</a>
+        <a href="#profil">Profil</a>
+        <a href="#informasi">Informasi Publik</a>
+        <a href="#dokumen">Dokumen</a>
+        <a href="#keuangan">Keuangan</a>
+        <a href="#kontak">Hubungi</a>
+      </nav>
     </div>
-    <nav>
-      <a href="index.html" class="active">Beranda</a>
-      <a href="profil.html" >Profil</a>
-      <a href="informasi.html" >Informasi Publik</a>
-      <a href="dokumen.html" >Dokumen</a>
-      <a href="keuangan.html" >Keuangan</a>
-      <a href="hubungi.html" >Hubungi</a>
-    </nav>
   </header>
 
-  <main>
-    <h2>Selamat Datang</h2><p>Selamat datang di portal <b>Publikasi Informasi Publik</b> Bagian Perencanaan & Keuangan Sekretariat Daerah Kota Parepare. Situs ini menyediakan berbagai informasi publik, dokumen resmi, dan laporan keuangan yang dapat diakses oleh masyarakat.</p>
+  <main class="container" id="home">
+    <section class="hero">
+      <div class="slider" id="slider">
+        <div class="slide active" style="background-image:url('images/slide1.jpg')">
+          <div class="slide-overlay">
+            <div style="color:white">
+              <h1>Transparansi untuk Pelayanan Publik</h1>
+              <div style="color:rgba(255,255,255,0.9); margin-top:6px">Akses dokumen perencanaan, laporan, dan realisasi anggaran secara terbuka.</div>
+            </div>
+          </div>
+        </div>
+        <div class="slide" style="background-image:url('images/slide2.jpg')">
+          <div class="slide-overlay">
+            <div style="color:white">
+              <h1>Sistem Perencanaan yang Akuntabel</h1>
+              <div style="color:rgba(255,255,255,0.9); margin-top:6px">Dokumen Renstra, Renja, RKA, dan Laporan tersedia untuk publik.</div>
+            </div>
+          </div>
+        </div>
+        <div class="slide" style="background-image:url('images/slide3.jpg')">
+          <div class="slide-overlay">
+            <div style="color:white">
+              <h1>Data Realisasi Anggaran</h1>
+              <div style="color:rgba(255,255,255,0.9); margin-top:6px">Grafik dan ringkasan anggaran untuk meningkatkan akuntabilitas.</div>
+            </div>
+          </div>
+        </div>
+        <div class="dots" id="dots"></div>
+      </div>
+    </section>
+
+    <div class="grid-3" style="margin-top:18px">
+      <div class="card">
+        <h2>Dokumen Terbaru</h2>
+        <table>
+          <thead><tr><th>No</th><th>Judul</th><th>Tanggal</th></tr></thead>
+          <tbody>
+            <tr><td>1</td><td>Renstra 2024-2028</td><td>15 Feb 2024</td></tr>
+            <tr><td>2</td><td>Renja 2025</td><td>20 Jan 2025</td></tr>
+            <tr><td>3</td><td>Laporan Realisasi 2024</td><td>10 Apr 2025</td></tr>
+          </tbody>
+        </table>
+        <div style="margin-top:10px"><a class="btn" href="#dokumen">Lihat Semua Dokumen</a></div>
+      </div>
+
+      <div class="card">
+        <h2>Transparansi Anggaran</h2>
+        <p style="color:var(--muted)">Ringkasan anggaran (alokasi vs realisasi).</p>
+        <div style="display:flex;gap:10px;margin-top:10px">
+          <div style="flex:1;padding:10px;background:#f8fafc;border-radius:8px">
+            <div style="font-size:13px;color:var(--muted)">Dialokasikan</div>
+            <div style="font-weight:700;margin-top:6px">Rp 1.250.000.000</div>
+          </div>
+          <div style="flex:1;padding:10px;background:#f8fafc;border-radius:8px">
+            <div style="font-size:13px;color:var(--muted)">Terealisasi</div>
+            <div style="font-weight:700;margin-top:6px">Rp 910.000.000</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>Pengumuman & Berita</h2>
+        <article style="margin-top:8px">
+          <div style="font-weight:700">Sosialisasi Cukai - 10 Sept 2025</div>
+          <div style="font-size:13px;color:var(--muted);margin-top:4px">Kegiatan sosialisasi yang diselenggarakan oleh Bagian Ekonomi dan SDA.</div>
+        </article>
+        <article style="margin-top:12px">
+          <div style="font-weight:700">Rapat Monitoring Realisasi Anggaran</div>
+          <div style="font-size:13px;color:var(--muted);margin-top:4px">Hasil rapat monitoring dan evaluasi realisasi anggaran.</div>
+        </article>
+      </div>
+    </div>
+
+    <section id="profil" style="margin-top:22px">
+      <div class="card">
+        <h2>Profil Bagian</h2>
+        <p style="color:var(--muted)">Visi: Menjadi bagian perencanaan dan keuangan yang profesional, transparan, dan akuntabel.</p>
+        <p style="color:var(--muted)">Misi: Meningkatkan perencanaan daerah, memastikan akuntabilitas anggaran, dan memberikan pelayanan informasi publik.</p>
+      </div>
+    </section>
+
+    <section id="informasi" style="margin-top:18px">
+      <div class="card">
+        <h2>Informasi Publik</h2>
+        <p style="color:var(--muted)">Daftar dokumen yang wajib tersedia untuk publik sesuai UU KIP.</p>
+        <ul>
+          <li>Renstra</li>
+          <li>Renja</li>
+          <li>RKA / DPA</li>
+          <li>Laporan Keuangan</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="dokumen" style="margin-top:18px">
+      <div class="card">
+        <h2>Dokumen Perencanaan & Laporan</h2>
+        <table>
+          <thead><tr><th>No</th><th>Judul</th><th>Kategori</th><th>Aksi</th></tr></thead>
+          <tbody>
+            <tr><td>1</td><td>Renstra 2024-2028</td><td>Perencanaan</td><td><a href="#" class="btn">Unduh</a></td></tr>
+            <tr><td>2</td><td>Renja 2025</td><td>Perencanaan</td><td><a href="#" class="btn">Unduh</a></td></tr>
+            <tr><td>3</td><td>Laporan Realisasi 2024</td><td>Keuangan</td><td><a href="#" class="btn">Unduh</a></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="keuangan" style="margin-top:18px">
+      <div class="card">
+        <h2>Keuangan Daerah</h2>
+        <p style="color:var(--muted)">Grafik realisasi anggaran dan data ringkasan dapat diunduh atau dilihat interaktif (fitur dashboard akan dikembangkan jika diperlukan).</p>
+      </div>
+    </section>
+
+    <section id="kontak" style="margin-top:18px">
+      <div class="card">
+        <h2>Hubungi Kami</h2>
+        <p style="color:var(--muted)">Permintaan informasi atau pengaduan dapat dikirim melalui form di bawah ini.</p>
+        <form onsubmit="event.preventDefault(); alert('Terima kasih — form akan dikirimkan ke admin. (Ini demo)');" style="display:grid;gap:8px;max-width:600px">
+          <input placeholder="Nama" style="padding:10px;border-radius:6px;border:1px solid #e6eef6" required>
+          <input placeholder="Email / Telepon" style="padding:10px;border-radius:6px;border:1px solid #e6eef6" required>
+          <select style="padding:10px;border-radius:6px;border:1px solid #e6eef6">
+            <option>Permintaan Informasi</option>
+            <option>Pengaduan</option>
+            <option>Umum</option>
+          </select>
+          <textarea placeholder="Pesan / Permintaan" style="padding:10px;border-radius:6px;border:1px solid #e6eef6" rows="6"></textarea>
+          <div><button class="btn" type="submit">Kirim</button></div>
+        </form>
+      </div>
+    </section>
+
   </main>
 
   <footer>
-    &copy; 2025 Bagian Perencanaan & Keuangan - Kota Parepare
+    <div class="container" style="display:flex;justify-content:space-between;align-items:center;gap:12px">
+      <div>© Bagian Perencanaan & Keuangan — Kota Parepare • Jalan Contoh No.1</div>
+      <div style="color:var(--muted)">Email: perencanaan@parepare.go.id</div>
+    </div>
   </footer>
+
+  <script>
+    // Simple slider
+    const slides = document.querySelectorAll('.slide');
+    const dotsWrap = document.getElementById('dots');
+    let current = 0;
+    slides.forEach((s,i)=>{
+      const dot = document.createElement('div');
+      dot.className='dot' + (i===0? ' active':'');
+      dot.addEventListener('click', ()=>{ goTo(i); });
+      dotsWrap.appendChild(dot);
+    });
+    function update(){ 
+      slides.forEach((s,i)=> s.classList.toggle('active', i===current));
+      const dots = document.querySelectorAll('.dot');
+      dots.forEach((d,i)=> d.classList.toggle('active', i===current));
+    }
+    function goTo(i){ current = i; update(); resetTimer(); }
+    function next(){ current = (current+1) % slides.length; update(); }
+    let timer = setInterval(next, 4000);
+    function resetTimer(){ clearInterval(timer); timer = setInterval(next, 4000); }
+  </script>
 </body>
 </html>
